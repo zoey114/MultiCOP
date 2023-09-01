@@ -1,3 +1,4 @@
+#### Simulate the data ####
 p=4; q=6; p0=2; q0=3;
 rho=0.5; sigma=0.1;
 n=100

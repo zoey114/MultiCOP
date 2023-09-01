@@ -17,3 +17,5 @@ library(rsample)
 library(dplyr)
 ```
 
+### Run experiments 
+All the functions are included in the ``multiCOP.R``. There is a quick example in ``example.R``.

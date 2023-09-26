@@ -12,4 +12,4 @@ install.packages("MultiCOP")
 ```
 
 ### Run experiments 
-All the functions are included in the ``multiCOP.R``. There is a quick example in ``example.R``.
+There is a quick example in ``example.R``.

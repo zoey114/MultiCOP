@@ -8,7 +8,7 @@
 You can install the R package by:
 
 ```{r}
-install("MultiCOP")
+install.packages("MultiCOP")
 ```
 
 ### Run experiments 

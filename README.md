@@ -10,6 +10,4 @@ You can install the R package by:
 ```{r}
 install.packages("MultiCOP")
 ```
-
-### Run experiments 
-There is a quick example in ``example.R``.
+### An example:

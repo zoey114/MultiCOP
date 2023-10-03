@@ -40,8 +40,13 @@ xxxxxxxx
 ```
 
 
+
+
 ### Data used in the paper
 
+The original dataset of Inflammatory bowel disease (IBD) is available [here]().
+
+The original dataset of Chronic Ischemic Heart Disease (CIHD) is available [here]().
 
 
 ### Reference:

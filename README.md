@@ -17,6 +17,10 @@ install.packages("MultiCOP")
 ```
 
 
+### Data used in the paper:
+
+
+
 ### Reference:
   - Zhong, Wenxuan, et al. "Correlation pursuit: forward stepwise variable selection for index models." Journal of the Royal Statistical Society Series B: Statistical Methodology 74.5 (2012): 849-870.
 

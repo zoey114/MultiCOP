@@ -39,7 +39,12 @@ xxxxxxxx
 xxxxxxxx
 ```
 
+The output would be the selected subset of **$X$** and **$Y$**, denoted as $X_sub$ and $Y_sub$.
 
+```{r}
+print(X_sub)
+print(Y_sub)
+```
 
 
 ### Data used in the paper

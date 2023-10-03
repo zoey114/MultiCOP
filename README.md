@@ -34,7 +34,7 @@ Dependencies can be found in [xxxx](xxxxxx).
 You can implement the first scenario in simulation using:
 
 ```{r}
-install.packages("MultiCOP")
+library("MultiCOP")
 rr = main(X, Y)
 X_sub = rr[1]
 Y_sub = rr[2]

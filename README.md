@@ -35,8 +35,9 @@ You can implement the first scenario in simulation using:
 
 ```{r}
 install.packages("MultiCOP")
-xxxxxxxx
-xxxxxxxx
+rr = main(X, Y)
+X_sub = rr[1]
+X_sub = rr[2]
 ```
 
 The output would be the selected subset of **$X$** and **$Y$**, denoted as $X_{sub}$ and $Y_{sub}$.

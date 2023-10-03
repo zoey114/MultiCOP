@@ -2,8 +2,6 @@
 
 **This repository contains code for paper "MultiCOP: An Integrative Analysis of Microbiome-Metabolome Associations"**
 
-### Reference:
-  - Zhong, Wenxuan, et al. "Correlation pursuit: forward stepwise variable selection for index models." Journal of the Royal Statistical Society Series B: Statistical Methodology 74.5 (2012): 849-870.
 
 ### Installation:
 You can install the R package by:
@@ -43,3 +41,7 @@ Y_sel_final = select.idx(result.Y)
 print(paste0("My selected X features are:", X_sel_final))
 print(paste0("My selected X features are:", Y_sel_final))
 ```
+
+### Reference:
+  - Zhong, Wenxuan, et al. "Correlation pursuit: forward stepwise variable selection for index models." Journal of the Royal Statistical Society Series B: Statistical Methodology 74.5 (2012): 849-870.
+

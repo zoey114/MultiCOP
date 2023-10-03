@@ -3,10 +3,14 @@
 **This repository contains code for the paper "MultiCOP: An Integrative Analysis of Microbiome-Metabolome Associations"**
 
 
+### Introduction
+
+We propose the multivariate correlation pursuit (\textsc{MultiCOP}) algorithm, which effectively integrates microbiome and metabolome data to uncover microbe-metabolite interactions and find relevant microbes/metabolites by applying correlation pursuit and random projection. The \textsc{MultiCOP} algorithm can also be applied to explore the association between any two high dimensional dataset and find the relevant features. 
+
 
 ### Tutorial
 
-Multicop requires two data tables in matrix form as input, denoted as X and Y, each with dimensions of n_sample by n_feature. The instructions for implementing MultiCOP are available in [code/example/example.Rmd](https://github.com/zoey114/MultiCOP/blob/main/code/example/example.Rmd). The tutorial shows how to implement the first scenario in simulation.
+Multicop requires two data tables in matrix form as input, denoted as **X** and **Y**, each with dimensions of n_sample by n_feature. The instructions for implementing MultiCOP are available in [code/example/example.Rmd](https://github.com/zoey114/MultiCOP/blob/main/code/example/example.Rmd). The tutorial shows how to implement the first scenario in simulation.
 
 
 ### R package
@@ -17,6 +21,11 @@ We have also developed an R package for ease of use. You can download the R pack
 ```{r}
 install.packages("MultiCOP")
 ```
+
+#### Dependencies:
+
+Dependencies can be found in [xxxx](xxxxxx).
+
 
 #### Usage:
 

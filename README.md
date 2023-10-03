@@ -10,7 +10,7 @@ Multicop requires two data tables in matrix form as input, denoted as X and Y, e
 
 
 ### Installation:
-We also create an R package for easy use.  You can download the R package [here](xxxxxxxxxxx) and install the R package by:
+We have also developed an R package for ease of use. You can download the R package [here](xxxxxxxxxxx). Once downloaded, follow the steps below to install it:
 
 ```{r}
 install.packages("MultiCOP")

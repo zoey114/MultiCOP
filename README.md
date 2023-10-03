@@ -55,7 +55,7 @@ The original dataset of Inflammatory bowel disease (IBD) is available [here]().
 The original dataset of Chronic Ischemic Heart Disease (CIHD) is available [here]().
 
 
-### Reference:
+### Reference
   - Zhong, Wenxuan, et al. "Correlation pursuit: forward stepwise variable selection for index models." Journal of the Royal Statistical Society Series B: Statistical Methodology 74.5 (2012): 849-870.
   - Chong, J., Liu, P., Zhou, G., Xia, J.: Using microbiome analyst for comprehensive statistical, functional, and meta-analysis of microbiome data. Nature protocols 15(3), 799–821 (2020).
 

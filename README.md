@@ -39,7 +39,7 @@ xxxxxxxx
 xxxxxxxx
 ```
 
-The output would be the selected subset of **$X$** and **$Y$**, denoted as $X_sub$ and $Y_sub$.
+The output would be the selected subset of **$X$** and **$Y$**, denoted as $X_{sub}$ and $Y_{sub}$.
 
 ```{r}
 print(X_sub)

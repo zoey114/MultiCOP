@@ -9,9 +9,9 @@ You can install the R package by:
 ```{r}
 install.packages("MultiCOP")
 ```
-### An example
+### Tutorial
 1. Input data:
-Multicop requires two data tables in matrix form as input, denoted as X and Y, each with dimensions of n_sample by n_feature.
+Multicop requires two data tables in matrix form as input, denoted as X and Y, each with dimensions of n_sample by n_feature. The instructions for implementing MultiCOP are available in [code/example/example.Rmd](https://github.com/zoey114/MultiCOP/blob/main/code/example/example.Rmd). The tutorial shows how to implement the first scenario in simulation.
 
 Put [code/example/example.Rmd](https://github.com/zoey114/MultiCOP/blob/main/code/example/example.Rmd)
 

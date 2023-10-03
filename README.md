@@ -13,7 +13,9 @@ install.packages("MultiCOP")
 1. Input data:
 Multicop requires two data tables in matrix form as input, denoted as X and Y, each with dimensions of n_sample by n_feature.
 
-2. Example:
+Put [code/example/example.Rmd](https://github.com/zoey114/MultiCOP/blob/main/code/example/example.Rmd)
+
+3. Example:
 ```{r}
 # read data in the example folder. 
 X = read.csv("input_X.txt")

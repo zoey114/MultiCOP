@@ -18,7 +18,7 @@ MultiCOP requires two data tables in matrix form as input, denoted as **X** and 
 ### R package
 
 #### Installment:
-We have also developed an R package for ease of use. You can download the R package [here](xxxxxxxxxxx). Once downloaded, follow the steps below to install it:
+We have also developed an R package for ease of use. You can download the R package [here](https://github.com/zoey114/MultiCOP/tree/main/code/R). Once downloaded, follow the steps below to install it:
 
 ```{r}
 install.packages("MultiCOP")

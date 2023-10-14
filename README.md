@@ -24,10 +24,6 @@ We have also developed an R package for ease of use. You can download the R pack
 install.packages("MultiCOP")
 ```
 
-#### Dependencies:
-
-Dependencies can be found in [xxxx](xxxxxx).
-
 
 #### Usage:
 
@@ -35,9 +31,9 @@ You can implement the first scenario in simulation using:
 
 ```{r}
 library("MultiCOP")
-rr = main(X, Y)
-X_sub = rr[1]
-Y_sub = rr[2]
+sub = multicop(X, Y, alpha.in.list, alpha.out.list, m, my.range)
+X_sub = sub[[1]]
+Y_sub = sub[[2]]
 ```
 
 The output would be the selected subset of **$X$** and **$Y$**, denoted as $X_{sub}$ and $Y_{sub}$.
@@ -50,9 +46,9 @@ print(Y_sub)
 
 ### Data used in the paper
 
-The original dataset of Inflammatory bowel disease (IBD) is available [here]().
+The original dataset of Inflammatory bowel disease (IBD) is available [here](https://ibdmdb.org/tunnel/public/summary.html).
 
-The original dataset of Chronic Ischemic Heart Disease (CIHD) is available [here]().
+The original dataset of Chronic Ischemic Heart Disease (CIHD) is available [here](https://www.nature.com/articles/s41591-022-01688-4).
 
 
 ### Reference

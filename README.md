@@ -39,10 +39,14 @@ Y_sub = sub[[2]]
 The output would be the selected subset of **$X$** and **$Y$**, denoted as $X_{sub}$ and $Y_{sub}$.
 
 ```{r}
-print(X_sub)
-print(Y_sub)
+cat("The selected subset in X: ", X_sub, '\n')
+cat("The selected subset in Y: ", Y_sub, '\n')
 ```
+And the outputs: 
 
+The selected subset in X:  1 2 3 
+
+The selected subset in Y:  3 2 1 
 
 ### Data used in the paper
 

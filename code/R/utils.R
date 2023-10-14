@@ -1,3 +1,5 @@
+library(dr)
+
 step.cop<-function(x,y,H,alpha.in,alpha.out,my.range,k){
   x=as.matrix(x)		
   p=NCOL(x)
@@ -76,7 +78,6 @@ step.cop<-function(x,y,H,alpha.in,alpha.out,my.range,k){
   return(my.current.sel=my.current.sel)
 }
 
-
 GIC<-function(x,y,my.sel,KK){
   x1=x[,my.sel]
   p=ncol(x1)
@@ -91,32 +92,18 @@ GIC<-function(x,y,my.sel,KK){
   return(Gk)
 }		
 
-
-scalar.y <- function(Y, m){
+scalar <- function(mat, m){
+  n = nrow(mat)
   scalar_responses <- matrix(NA, n, m)
   # Generate random direction vectors and project Y along these directions
   for (i in 1:m) {
     # Generate a random direction vector with unit length
-    set.seed(seed+100)
-    direction <- rnorm(p_y)
+    p = ncol(mat)
+    set.seed(sample(100,1)+p)
+    direction <- rnorm(p, mean=0, sd=1)
     direction <- direction / sqrt(sum(direction^2))
     # Project Y along the direction vector
-    scalar_responses[, i] <- Y %*% direction
-  }
-  return(scalar_responses)
-}
-
-scalar.x <- function(X.selected, m){
-  scalar_responses <- matrix(NA, n, m)
-  # Generate random direction vectors and project Y along these directions
-  for (i in 1:m) {
-    # Generate a random direction vector with unit length
-    set.seed(seed+10)
-    px = length(X_sel_idx)
-    direction <- rnorm(px, mean=0, sd=1)
-    direction <- direction / sqrt(sum(direction^2))
-    # Project Y along the direction vector
-    scalar_responses[, i] <- X.selected %*% direction
+    scalar_responses[, i] <- mat %*% direction
   }
   return(scalar_responses)
 }
@@ -125,45 +112,25 @@ step.multicop.x <- function(i_y){
   tryCatch({
     x = X
     y = scalar.Y[,i_y]
-    my.cop.sel = step.cop(x,y,H = 5,alpha.in = alpha.in,alpha.out = alpha.out,
-                          my.range=my.range,k=3)
-    # Select K, the number of principal profile correlation directions
-    my.d=NULL
-    for(j in 1:max(nrow(x),ncol(x))){
-      # GIC<-function(x,y,my.sel,KK)
-      my.d[j]=GIC(x,y,my.sel = my.cop.sel, KK = j)
+    GIC_score = NULL
+    for (i in 1:length(alpha.in.list)){
+      my.cop.sel = step.cop(x,y,H = 5,alpha.in = alpha.in.list[i],alpha.out = alpha.in.list[i],
+                            my.range=my.range,k=3)
+      # Select K, the number of principal profile correlation directions
+      my.d=NULL
+      for(j in 1:max(nrow(x),ncol(x))){
+        my.d[j]=GIC(x,y,my.sel = my.cop.sel, KK = j)
+      }
+      K = which.max(my.d)
+      GIC_score[i] = my.d[K]
     }
-    K = which.min(my.d)
-    GIC_score = my.d[K]
     if (is.na(GIC_score)){print("no K is selected")}
-    x_sel = step.cop(x,y,H = 5,alpha.in = 0.95,alpha.out = 0.90,my.range=100,k=K)
+    alpha = which.min(GIC_score)
+    alpha.in = alpha.in.list[alpha]; alpha.out = alpha.in.list[alpha]
+    x_sel = step.cop(x,y,H = 5,alpha.in = alpha.in,alpha.out = alpha.out,my.range=100,k=K)
     return(x_sel)
-    
   }, error = function(e) {
-    cat("skip ",i_y, "\n")
-  })
-}
-
-step.multicop.y <- function(i_x){
-  tryCatch({
-    x = Y
-    y = scalar.X[,i_x]
-    my.cop.sel = step.cop(x,y,H = 5,alpha.in = 0.95,alpha.out = 0.90,
-                          my.range=100,k=4)
-    # Select K, the number of principal profile correlation directions
-    my.d=NULL
-    for(j in 1:max(nrow(x),ncol(x))){
-      # GIC<-function(x,y,my.sel,KK)
-      my.d[j]=GIC(x,y,my.sel = my.cop.sel, KK = j)
-    }
-    K = which.min(my.d)
-    GIC_score = my.d[K]
-    if (is.na(GIC_score)){print("no K is selected")}
-    x_sel = step.cop(x,y,H = 5,alpha.in = 0.95,alpha.out = 0.90,my.range=100,k=K)
-    return(x_sel)
-    
-  }, error = function(e) {
-    cat("skip ",i_x, "\n")
+    #cat("skip ",i_y, "\n")
   })
 }
 
@@ -174,6 +141,34 @@ select.idx <- function(result.X){
   freq_table <- table(unlist(x_sel_vote))
   sorted_freq_table <- sort(freq_table, decreasing = TRUE)
   X_sel_final <- names(sorted_freq_table[1:K_X])
+}
+
+step.multicop.y <- function(i_x){
+  tryCatch({
+    x = Y
+    y = scalar.X[,i_x]
+    GIC_score = NULL
+    for (i in 1:length(alpha.in)){
+      my.cop.sel = step.cop(x,y,H = 5,alpha.in.list[i],alpha.out = alpha.in.list[i],
+                            my.range=100,k=4)
+      # Select K, the number of principal profile correlation directions
+      my.d=NULL
+      for(j in 1:max(nrow(x),ncol(x))){
+        # GIC<-function(x,y,my.sel,KK)
+        my.d[j]=GIC(x,y,my.sel = my.cop.sel, KK = j)
+      }
+      K = which.max(my.d)
+      GIC_score[i] = my.d[K]
+    }
+    if (is.na(GIC_score)){print("no K is selected")}
+    if (is.na(GIC_score)){print("no K is selected")}
+    alpha = which.min(GIC_score)
+    alpha.in = alpha.in[alpha]; alpha.out = alpha.out[alpha]
+    x_sel = step.cop(x,y,H = 5,alpha.in = alpha.in, alpha.out = alpha.out,my.range=100,k=K)
+    return(x_sel)
+  }, error = function(e) {
+    # cat("skip ",i_x, "\n")
+  })
 }
 
 

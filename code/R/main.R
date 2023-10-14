@@ -4,7 +4,8 @@ library(MASS)
 library(dr)
 source("R/utils.R")
 
-multicop = function(alpha.in.list, alpha.out.list, m, my.range){
+# alpha.in.list/alpha.out.list: vectors of candidate c_e and c_d. 
+multicop = function(X, Y, alpha.in.list, alpha.out.list, m, my.range){
   sub = list()
   scalar.Y = scalar(Y, m=m)
   result.X = lapply(1:m, function(i){suppressWarnings(step.multicop.x(i))})

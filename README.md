@@ -14,6 +14,13 @@ The Taxon Set Enrichment Analysis ([TSEA](https://edisciplinas.usp.br/pluginfile
 
 MultiCOP requires two data tables in matrix form as input, denoted as **X** and **Y**, each with dimensions of n_sample by n_feature. The instructions for implementing MultiCOP are available in [code/example/example.Rmd](https://github.com/zoey114/MultiCOP/blob/main/example/example.md). The tutorial shows how to implement the first scenario in simulation.
 
+#### Requirement
+
+The function is built on R version 4.1.1. The [requirement.txt](https://github.com/zoey114/MultiCOP/blob/main/requirements.txt) file lists all the packages the notebook depends on. You can use the following command to check your R version.
+
+```
+R.version
+```
 
 
 

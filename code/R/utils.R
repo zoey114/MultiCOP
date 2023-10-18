@@ -148,8 +148,8 @@ step.multicop.y <- function(i_x){
     x = Y
     y = scalar.X[,i_x]
     GIC_score = NULL
-    for (i in 1:length(alpha.in)){
-      my.cop.sel = step.cop(x,y,H = 5,alpha.in.list[i],alpha.out = alpha.in.list[i],
+    for (i in 1:length(alpha.in.list)){
+      my.cop.sel = step.cop(x,y,H = 5,alpha.in = alpha.in.list[i], alpha.out = alpha.in.list[i],
                             my.range=100,k=4)
       # Select K, the number of principal profile correlation directions
       my.d=NULL
@@ -163,7 +163,7 @@ step.multicop.y <- function(i_x){
     if (is.na(GIC_score)){print("no K is selected")}
     if (is.na(GIC_score)){print("no K is selected")}
     alpha = which.min(GIC_score)
-    alpha.in = alpha.in[alpha]; alpha.out = alpha.out[alpha]
+    alpha.in = alpha.in.list[alpha]; alpha.out = alpha.out.list[alpha]
     x_sel = step.cop(x,y,H = 5,alpha.in = alpha.in, alpha.out = alpha.out,my.range=100,k=K)
     return(x_sel)
   }, error = function(e) {

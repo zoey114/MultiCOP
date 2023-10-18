@@ -12,41 +12,10 @@ The Taxon Set Enrichment Analysis ([TSEA](https://edisciplinas.usp.br/pluginfile
 
 ### Tutorial
 
-MultiCOP requires two data tables in matrix form as input, denoted as **X** and **Y**, each with dimensions of n_sample by n_feature. The instructions for implementing MultiCOP are available in [code/example/example.Rmd](https://github.com/zoey114/MultiCOP/blob/main/example/example.Rmd). The tutorial shows how to implement the first scenario in simulation.
+MultiCOP requires two data tables in matrix form as input, denoted as **X** and **Y**, each with dimensions of n_sample by n_feature. The instructions for implementing MultiCOP are available in [code/example/example.Rmd](https://github.com/zoey114/MultiCOP/blob/main/example/example.md). The tutorial shows how to implement the first scenario in simulation.
 
 
-### R package
 
-#### Installment:
-We have also developed an R package for ease of use. You can download the R package [here](https://github.com/zoey114/MultiCOP/tree/main/code/R). Once downloaded, follow the steps below to install it:
-
-```{r}
-install.packages("MultiCOP")
-```
-
-
-#### Usage:
-
-You can implement the first scenario in simulation using:
-
-```{r}
-library("MultiCOP")
-sub = multicop(X, Y, alpha.in.list, alpha.out.list, m, my.range)
-X_sub = sub[[1]]
-Y_sub = sub[[2]]
-```
-
-The output would be the selected subset of **$X$** and **$Y$**, denoted as $X_{sub}$ and $Y_{sub}$.
-
-```{r}
-cat("The selected subset in X: ", X_sub, '\n')
-cat("The selected subset in Y: ", Y_sub, '\n')
-```
-And the outputs: 
-
-The selected subset in X:  1 2 3 
-
-The selected subset in Y:  3 2 1 
 
 ### Data used in the paper
 
